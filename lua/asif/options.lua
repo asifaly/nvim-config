@@ -1,19 +1,20 @@
 -- [[ options.lua ]]
-vim.opt.clipboard = "unnamedplus"
-vim.opt.hlsearch = true
-vim.opt.nu = true
-vim.opt.mouse = "a"
-vim.opt.breakindent = true
-vim.opt.undofile = true
-vim.opt.ignorecase = true
-vim.opt.smartcase = true
-vim.opt.rnu = true
-vim.opt.updatetime = 250
-vim.opt.signcolumn = "yes"
-vim.opt.termguicolors = true
-vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+local o = vim.opt
+o.clipboard = "unnamedplus"
+o.hlsearch = true
+o.nu = true
+o.mouse = "a"
+o.breakindent = true
+o.undofile = true
+o.ignorecase = true
+o.smartcase = true
+o.rnu = true
+o.updatetime = 250
+o.signcolumn = "yes"
+o.termguicolors = true
+o.undodir = os.getenv("HOME") .. "/.vim/undodir"
 -- Set completeopt to have a better completion experience
-vim.opt.completeopt = "menuone,noselect"
+o.completeopt = "menuone,noselect"
 vim.g.python3_host_prog = "/usr/bin/python3"
 vim.g.python2_host_prog = "/usr/bin/python2"
 vim.g.loaded_ruby_provider = 0

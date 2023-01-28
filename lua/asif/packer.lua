@@ -20,7 +20,6 @@ return require("packer").startup(function(use)
 			pcall(require("nvim-treesitter.install").update({ with_sync = true }))
 		end,
 	})
-	use("ThePrimeagen/harpoon")
 	use("mbbill/undotree")
 	use("tpope/vim-fugitive")
 	use("lewis6991/gitsigns.nvim")
@@ -77,6 +76,18 @@ return require("packer").startup(function(use)
 		after = { "copilot.lua" },
 		config = function()
 			require("copilot_cmp").setup()
+		end
+	}
+	use {
+		"folke/which-key.nvim",
+		config = function()
+			vim.o.timeout = true
+			vim.o.timeoutlen = 300
+			require("which-key").setup {
+				-- your configuration comes here
+				-- or leave it empty to use the default settings
+				-- refer to the configuration section below
+			}
 		end
 	}
 end)

@@ -46,7 +46,6 @@ lsp.configure('eslint', {
 		"typescriptreact",
 		"vue",
 		"json",
-		"vimls",
 	},
 	settings = {
 		codeActionOnSave = {
@@ -58,9 +57,12 @@ lsp.configure('eslint', {
 
 lsp.configure('sumneko_lua', {
 	Lua = {
-		workspace = { checkThirdParty = false },
+		diagnostics = { globals = { 'vim' }, disable = { "lowercase-global" } },
+		workspace = {
+			library = vim.api.nvim_get_runtime_file("", true),
+			checkThirdParty = false
+		},
 		telemetry = { enable = false },
-		diagnostics = { globals = { 'vim' }, },
 	},
 })
 
