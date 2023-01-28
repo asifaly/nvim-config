@@ -1,4 +1,6 @@
 local lsp = require('lsp-zero')
+local cmp = require('cmp')
+
 lsp.preset('recommended')
 
 lsp.ensure_installed({
@@ -9,6 +11,27 @@ lsp.ensure_installed({
 	"volar",
 	"html",
 	"eslint",
+})
+
+lsp.setup_nvim_cmp({
+	sources = {
+		-- This one provides the data from copilot.
+		{ name = 'copilot' },
+
+		--- These are the default sources for lsp-zero
+		{ name = 'path' },
+		{ name = 'nvim_lsp', keyword_length = 3 },
+		{ name = 'buffer', keyword_length = 3 },
+		{ name = 'luasnip', keyword_length = 2 },
+	},
+	mapping = lsp.defaults.cmp_mappings({
+		['<CR>'] = cmp.mapping.confirm({
+			-- documentation says this is important.
+			-- I don't know why.
+			behavior = cmp.ConfirmBehavior.Replace,
+			select = false,
+		})
+	})
 })
 
 lsp.configure('volar', {
@@ -33,13 +56,13 @@ lsp.configure('eslint', {
 	},
 })
 
--- lsp.configure('sumneko_lua', {
--- 	Lua = {
--- 		workspace = { checkThirdParty = false },
--- 		telemetry = { enable = false },
--- 		diagnostics = { globals = { 'vim' }, },
--- 	},
--- })
+lsp.configure('sumneko_lua', {
+	Lua = {
+		workspace = { checkThirdParty = false },
+		telemetry = { enable = false },
+		diagnostics = { globals = { 'vim' }, },
+	},
+})
 
 lsp.on_attach(function(_, bufnr)
 	local nmap = function(keys, func, desc)
