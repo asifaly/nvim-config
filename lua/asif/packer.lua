@@ -24,7 +24,10 @@ return require("packer").startup(function(use)
 	use("mbbill/undotree")
 	use("tpope/vim-fugitive")
 	use("lewis6991/gitsigns.nvim")
-	use("nvim-lualine/lualine.nvim") -- Fancier statusline
+	use {
+		'nvim-lualine/lualine.nvim',
+		requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+	}
 	use("numToStr/Comment.nvim") -- "gc" to comment visual regions/lines
 	use("tpope/vim-sleuth") -- Detect tabstop and shiftwidth automatically
 	use("lukas-reineke/indent-blankline.nvim") -- Add indentation guides even on blank lines
