@@ -29,7 +29,12 @@ return require("packer").startup(function(use)
 	use("numToStr/Comment.nvim") -- "gc" to comment visual regions/lines
 	use("tpope/vim-sleuth") -- Detect tabstop and shiftwidth automatically
 	use("lukas-reineke/indent-blankline.nvim") -- Add indentation guides even on blank lines
-	use("folke/neodev.nvim")
+	use({
+		"folke/neodev.nvim",
+		config = function()
+			require("neodev").setup()
+		end,
+	})
 	use({
 		"jose-elias-alvarez/null-ls.nvim",
 		config = function()
