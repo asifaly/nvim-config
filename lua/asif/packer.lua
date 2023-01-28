@@ -26,7 +26,12 @@ return require("packer").startup(function(use)
 		'nvim-lualine/lualine.nvim',
 		requires = { 'kyazdani42/nvim-web-devicons', opt = true }
 	}
-	use("numToStr/Comment.nvim") -- "gc" to comment visual regions/lines
+	use({
+		"numToStr/Comment.nvim",
+		config = function()
+			require("Comment").setup()
+		end,
+	}) -- "gc" to comment visual regions/lines
 	use("tpope/vim-sleuth") -- Detect tabstop and shiftwidth automatically
 	use("lukas-reineke/indent-blankline.nvim") -- Add indentation guides even on blank lines
 	use({
