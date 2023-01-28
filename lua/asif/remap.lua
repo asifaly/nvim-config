@@ -8,7 +8,6 @@ map("n", "]d", vim.diagnostic.goto_next, { desc = "Diagnostic Next"})
 map("n", "<Leader>e", vim.diagnostic.open_float, { desc = "Diagnostic Open Float"})
 map("n", "<Leader>l", vim.diagnostic.setloclist, { desc = "Diagnostic Open List"})
 -- map({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
-
 -- Remap for dealing with word wrap
 map("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 map("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
