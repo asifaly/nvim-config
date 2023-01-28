@@ -20,7 +20,6 @@ return require("packer").startup(function(use)
 			pcall(require("nvim-treesitter.install").update({ with_sync = true }))
 		end,
 	})
-	use("mbbill/undotree")
 	use("tpope/vim-fugitive")
 	use("lewis6991/gitsigns.nvim")
 	use {
