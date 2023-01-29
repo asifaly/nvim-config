@@ -14,7 +14,7 @@ return require("packer").startup(function(use)
 			vim.cmd("colorscheme rose-pine")
 		end,
 	})
-	use({ -- Highlight, edit, and navigate code
+	use({
 		"nvim-treesitter/nvim-treesitter",
 		run = function()
 			pcall(require("nvim-treesitter.install").update({ with_sync = true }))
@@ -31,9 +31,9 @@ return require("packer").startup(function(use)
 		config = function()
 			require("Comment").setup()
 		end,
-	}) -- "gc" to comment visual regions/lines
-	use("tpope/vim-sleuth") -- Detect tabstop and shiftwidth automatically
-	use("lukas-reineke/indent-blankline.nvim") -- Add indentation guides even on blank lines
+	})
+	use("tpope/vim-sleuth")
+	use("lukas-reineke/indent-blankline.nvim")
 	use({
 		"folke/neodev.nvim",
 		config = function()
@@ -42,9 +42,6 @@ return require("packer").startup(function(use)
 	})
 	use({
 		"jose-elias-alvarez/null-ls.nvim",
-		-- config = function()
-		-- 	require("null-ls").setup()
-		-- end,
 		requires = { "nvim-lua/plenary.nvim" },
 	})
 	use({

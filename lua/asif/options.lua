@@ -13,6 +13,8 @@ o.updatetime = 250
 o.signcolumn = "yes"
 o.termguicolors = true
 o.undofile = true
+o.backupdir = os.getenv("HOME") .. "/.vim/backup"
+o.directory = os.getenv("HOME") .. "/.vim/swap"
 o.undodir = os.getenv("HOME") .. "/.vim/undodir"
 -- Set completeopt to have a better completion experience
 o.completeopt = "menuone,noselect"
